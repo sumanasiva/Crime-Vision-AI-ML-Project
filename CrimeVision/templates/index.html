@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Crime Classification using Deep Learning </title>
+    <link rel="stylesheet" href="Final_Indexstyles.css">
+</head>
+<style>
+  body {
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        color:white;
+        margin: 0;
+        padding: 0;
+        background: url("https://png.pngtree.com/thumb_back/fh260/background/20210604/pngtree-network-cable-abstract-digital-technology-background-image_724746.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+.navbar {
+    background-color:#800000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    margin: 20px;
+}
+
+.description {
+    width: 50%;
+    padding-right: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+.crime-picture {
+    width: 50%;
+}
+
+.crime-picture img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.predict-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.predict-button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1 class="logo">Crime Detector</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="description">
+            <h2>PROJECT DESCRIPTION</h2>
+            <p>Crime identification using deep learning is a technique that involves applying deep learning techniques, specifically deep learning, to analyze images and video footage of crime scenes or incidents and identify and classify different types of crimes. Deep learning involves training neural networks on large amounts of data to recognize patterns and make predictions or decisions. By using deep learning, it is possible to analyze images and video footage of crime scenes or incidents and classify different types of crimes based on the type of activity depicted in the images. This can be useful in a variety of criminal justice and law enforcement contexts, including crime scene investigation, forensic analysis, and surveillance. Deep learning algorithms can be trained to recognize patterns and features in images and video that are relevant to identifying different types of crimes. They can also be used to analyze large amounts of data, such as surveillance footage, to identify trends and patterns in crime data. This can allow law enforcement agencies to develop strategies and interventions to prevent crime.</p>
+            
+            <h1>Crime Prediction</h1>
+
+            <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+                <label for="file" class="file-label">Upload Image:</label>
+                <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+                <button type="submit" class="predict-button">Predict</button>
+            </form>
+
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+        </section>
+
+        <section class="crime-picture">
+            <img src="https://t4.ftcdn.net/jpg/05/60/98/41/360_F_560984180_4J3a6TvZQZMTb9IsW9qQbBE5wqQgjEPZ.jpg" alt="Crime Picture">
+        </section>
+        
+    </main>
+
+</body>
+</html>
